@@ -14,11 +14,12 @@ public class AccountDAO {
 		st.setString(3, accountDTO.getId());
 		result = st.executeUpdate();
 		st.close();
+		
 		return result;
 	}
 	
-	
-	public int insert(AccountDTO accountDTO, Connection con)throws Exception{
+	//계좌 개설
+	public int insert(AccountDTO accountDTO, Connection con) throws Exception{
 		int result=0;
 		String sql="insert into account values(?,?,?,0,sysdate)";
 		PreparedStatement st = con.prepareStatement(sql);
@@ -27,7 +28,7 @@ public class AccountDAO {
 		st.setString(3, accountDTO.getId());
 		result = st.executeUpdate();
 		st.close();
+		
 		return result;
 	}
-
 }

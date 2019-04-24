@@ -9,7 +9,7 @@ import com.iu.util.DBConnector;
 public class MemberDAO {
 	
 	//로그인
-	public MemberDTO login(MemberDTO memberDTO)throws Exception{
+	public MemberDTO login(MemberDTO memberDTO) throws Exception{
 		Connection con = DBConnector.getConnect();
 		String sql="select * from member where id=? and pw=?";
 		PreparedStatement st = con.prepareStatement(sql);
@@ -28,7 +28,7 @@ public class MemberDAO {
 	}
 	
 	//회원가입
-	public int insert(MemberDTO memberDTO)throws Exception{
+	public int insert(MemberDTO memberDTO) throws Exception{
 		int result=0;
 		Connection con = DBConnector.getConnect();
 		String sql="insert into member values(?,?,?,?,?)";
@@ -44,6 +44,7 @@ public class MemberDAO {
 		return result;
 	}
 	
-	//로그인
+	//수정
+	//탈퇴
 
 }

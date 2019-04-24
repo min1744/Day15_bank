@@ -30,8 +30,6 @@ public class DBConnector {
 	}
 	public static void disConnect(ResultSet rs, PreparedStatement st, Connection con)throws Exception{
 		rs.close();
-		st.close();
-		con.close();
+		DBConnector.disConnect(st, con);
 	}
-
 }

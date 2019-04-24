@@ -22,26 +22,28 @@ public class MemberController {
 	public void start() {
 		boolean check = true;
 		String message=null;
+		int select = 0;
 		while(check) {
 			if(Session.member != null) {
 				System.out.println("1. MyPage");
 				System.out.println("2. 로그아웃");
 				System.out.println("3. 계좌관리");
-				
-				int select = sc.nextInt();
+				System.out.print("번호를 입력하세요 : ");
+				select = sc.nextInt();
 				if(select == 1) {
 					view.view();
 				}else if(select == 2){
 					Session.member=null;
-				}else {
+				}else if(select == 3){
 					accountController.start();
-				}
-				
+				}else
+					System.out.println("번호를 잘못 입력하셨습니다.");
 			}else {
 				System.out.println("1. 회원가입");
 				System.out.println("2. 로 그 인");
 				System.out.println("3. 종     료");
-				int select = sc.nextInt();
+				System.out.print("번호를 입력하세요 : ");
+				select = sc.nextInt();
 				switch(select) {
 				case 1:
 					message=memberService.insert();
@@ -51,14 +53,12 @@ public class MemberController {
 					message=memberService.login();
 					view.view(message);
 					break;
-				default:
+				case 3:
 					check=!check;
+				default:
+					System.out.println("번호를 잘못 입력하셨습니다.");
 				}
-				
 			}
-			
 		}
 	}
-	
-
 }

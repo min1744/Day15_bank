@@ -23,7 +23,7 @@ public class MemberService {
 			Session.member = memberDTO;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace();//예외 발생 위치 파악
 		}
 		if(memberDTO != null) {
 			message = "로그인 성공";
